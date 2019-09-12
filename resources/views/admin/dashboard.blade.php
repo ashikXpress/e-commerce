@@ -3,6 +3,7 @@
     Dashboard || page
 @endsection
 @section('header')
+
     <h1>
         Dashboard......
         <small>Control panel</small>
@@ -11,6 +12,13 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
     </ol>
+    <br>
+    <p>{{Auth()->guard('admin')->user()->name}}</p>
+    <p><img style="width: 300px" src="{{asset('uploads/'.Auth()->guard('admin')->user()->photo)}}" alt="">
+    </p>
+    @if(session()->has('success'))
+        <h5 class="alert alert-success">{{session()->get('success')}}</h5>
+    @endif
 @endsection
 
 @section('content')

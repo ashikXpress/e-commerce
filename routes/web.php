@@ -18,10 +18,12 @@ Route::get('dashboard', function () {
 });
 Route::namespace('Auth')->group(function () {
     Route::get('admin','AuthController@adminLoginForm')->name('admin.login.form');
-    Route::post('admin','AuthController@adminLogin')
+    Route::post('admin','AuthController@adminLogin');
+    Route::get('admin-logout','AuthController@adminLogout')->name('admin.logout');
     ;
     Route::get('user','AuthController@userLoginForm')->name('user.login.form');
     Route::post('user','AuthController@userLogin');
+    Route::get('user-logout','AuthController@userLogout')->name('user.logout');
 
 });
 

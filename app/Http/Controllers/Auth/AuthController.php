@@ -34,6 +34,12 @@ class AuthController extends Controller
 
    }
 
+   public function adminLogout(){
+
+       Auth::guard('admin')->logout();
+       return redirect()->route('admin.login.form');
+   }
+
    public function userLoginForm(){
        return view('fontend.user.user_login');
    }
@@ -54,4 +60,11 @@ class AuthController extends Controller
 
 
    }
+
+   public function userLogout(Request $request){
+      Auth::logout();
+      return redirect()->route('user.login.form');
+
+   }
+
 }

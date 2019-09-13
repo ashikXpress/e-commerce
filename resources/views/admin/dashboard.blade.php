@@ -13,8 +13,8 @@
         <li class="active">Dashboard</li>
     </ol>
     <br>
-    <p>{{Auth()->guard('admin')->user()->name}}</p>
-    <p><img style="width: 300px" src="{{asset('uploads/'.Auth()->guard('admin')->user()->photo)}}" alt="">
+    <p>{{optional(\Auth::guard('admin')->user())->name}}</p>
+    <p><img style="width: 300px" src="{{asset('uploads/'.optional(\Auth::guard('admin')->user())->photo)}}" alt="">
     </p>
     @if(session()->has('success'))
         <h5 class="alert alert-success">{{session()->get('success')}}</h5>

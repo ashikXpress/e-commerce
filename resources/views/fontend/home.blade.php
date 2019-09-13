@@ -11,10 +11,12 @@
     <title>Hello, world!</title>
 </head>
 <body>
+
 @if(session()->has('success'))
     <h5 class="alert alert-success">{{session()->get('success')}}</h5>
 @endif
 <div class="container">
+    <a class="btn btn-danger" href="{{route('user.logout')}}">Log out</a>
     <div class="row">
         <div class="col-md-8 offset-2">
             <p>User: {{Auth()->user()->name}}</p>

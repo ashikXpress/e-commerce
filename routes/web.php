@@ -42,3 +42,20 @@ Route::namespace('User')->group(function(){
 
     Route::post('user-registration','UserController@userRegistration');
 });
+
+Route::namespace('Service')->group(function (){
+    Route::get('service-create','ServiceController@serviceCreateForm')->name('service.create.form');
+    Route::post('service-create','ServiceController@serviceCreate');
+
+
+});
+Route::namespace('Portfolio')->group(function(){
+    Route::get('portfolio-create','PortfolioController@portfolioCreateForm')->name('portfolio.create.form');
+    Route::post('portfolio-create','PortfolioController@portfolioreate');
+
+});
+
+Route::namespace('Gallery')->group(function (){
+    Route::get('gallery-create','GalleryController@galleryCreateForm')->name('gallery.create.form');
+    Route::post('gallery-create','GalleryController@galleryCreate');
+});

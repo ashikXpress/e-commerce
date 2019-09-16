@@ -31,11 +31,7 @@
                             <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Enter name">
                             <span class="text text-danger">{{$errors->first('name')}}</span>
                         </div>
-                        <div class="form-group">
-                            <label for="title">Service title</label>
-                            <input type="text" name="title" value="{{old('title')}}"  class="form-control" id="title" placeholder="Enter title">
-                            <span class="text text-danger">{{$errors->first('title')}}</span>
-                        </div>
+
                         <div class="form-group">
                             <label for="slug">Service slug</label>
                             <input type="text" name="slug" value="{{old('slug')}}" class="form-control" id="slug" placeholder="Enter slug">
@@ -56,6 +52,7 @@
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-success">Save</button>
+                        <a href="{{route('portfolio.read')}}" class="btn btn-success">Cancel</a>
                     </div>
                 </form>
             </div>

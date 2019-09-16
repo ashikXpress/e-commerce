@@ -47,6 +47,7 @@
 
                     <div class="box-footer">
                         <button type="submit" class="btn btn-success">Save</button>
+                        <a href="{{route('gallery.read')}}" class="btn btn-success">Cancel</a>
                     </div>
                 </form>
             </div>

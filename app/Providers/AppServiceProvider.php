@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Providers;
-
+use http\Env\Request;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        $uril=$request->segment(1);
+//        View::share('uril',$uril);
+
     }
 
     /**

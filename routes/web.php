@@ -13,9 +13,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('dashboard', function () {
-    return view('admin.dashboard');
+
+Route::namespace('Dashboard')->group(function(){
+    Route::get('dashboard','DashboardController@dashboard')->name('dashboard');
 });
+
 Route::namespace('Auth')->group(function () {
     Route::get('admin','AuthController@adminLoginForm')->name('admin.login.form');
     Route::post('admin','AuthController@adminLogin');
@@ -39,23 +41,26 @@ Route::namespace('Admin')->group(function () {
 Route::namespace('User')->group(function(){
     Route::get('/','UserController@home')->name('home');
     Route::get('user-registration','UserController@userRegistrationForm')->name('user.registration.form');
-
     Route::post('user-registration','UserController@userRegistration');
+    Route::get('user-data','UserController@userData')->name('user.data.read');
 });
 
 Route::namespace('Service')->group(function (){
     Route::get('service-create','ServiceController@serviceCreateForm')->name('service.create.form');
     Route::post('service-create','ServiceController@serviceCreate');
+    Route::get('service-read','ServiceController@serviceRead')->name('service.read');
 
 
 });
 Route::namespace('Portfolio')->group(function(){
     Route::get('portfolio-create','PortfolioController@portfolioCreateForm')->name('portfolio.create.form');
-    Route::post('portfolio-create','PortfolioController@portfolioreate');
+    Route::post('portfolio-create','PortfolioController@portfolioCreate');
+    Route::get('portfolio-read','PortfolioController@portfolioRead')->name('portfolio.read');
 
 });
 
 Route::namespace('Gallery')->group(function (){
     Route::get('gallery-create','GalleryController@galleryCreateForm')->name('gallery.create.form');
     Route::post('gallery-create','GalleryController@galleryCreate');
+    Route::get('gallery-read','GalleryController@galleryRead')->name('gallery.read');
 });

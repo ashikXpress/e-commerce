@@ -19,3 +19,8 @@
 <link rel="stylesheet" href="{{asset('assets/admin/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
 <!-- bootstrap wysihtml5 - text editor -->
 <link rel="stylesheet" href="{{asset('assets/admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+<style>
+    .active-sub-menu{
+        display: block !important;
+    }
+</style>

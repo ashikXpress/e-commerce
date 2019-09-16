@@ -48,7 +48,11 @@ class ServiceController extends Controller
 
     }
 
-
+public function serviceRead(Request $request){
+        $data=[];
+        $data['services']=Service::paginate(5);
+        return view('admin.service.service_read',$data);
+}
 
 
 //$files = $request->file('attachment');

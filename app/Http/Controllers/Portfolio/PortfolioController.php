@@ -17,17 +17,15 @@ class PortfolioController extends Controller
 
         $this->validate($request,[
             'name'=>'required',
-            'title'=>'required',
             'slug'=>'required',
             'attachments'=>'required',
         ]);
 
-       $portfolio= Portfolio::create([
-            'name'=>$request->name,
-            'title'=>$request->title,
-            'slug'=>$request->slug,
 
-          ]);
+        $portfolio=Portfolio::create([
+           'name'=>$request->name,
+            'slug'=>$request->slug.'_'.\Str::random(10),
+        ]);
 
         $portfolio_id=$portfolio->id;
 
@@ -35,19 +33,29 @@ class PortfolioController extends Controller
 
         if($request->hasFile('attachments')){
             foreach ($files as $file) {
-            $photo_path=$file->store('gallery');
+                $photo_path=$file->store('gallery');
 
-                ImagePortfolio::create([
+                $portfolio= ImagePortfolio::create([
+
                     'attachments'=>$photo_path,
                     'portfolio_id'=>$portfolio_id,
-                ]);
-        }
+                 ]);
+
+
+            }
 
         }
 
 
-        $request->session()->flash('success','Portfolio create successful');
+          $request->session()->flash('success','Portfolio create successful');
         return redirect()->back();
+
+    }
+
+    public function portfolioRead(Request $request){
+        $data=[];
+        $data['portfolios']=ImagePortfolio::paginate(2);
+        return view('admin.portfolio.portfolio_read',$data);
 
     }
 }

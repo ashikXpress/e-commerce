@@ -54,7 +54,7 @@
                     </div>
                     <div class="form-group">
                         <label for="photo">Photo</label>
-                        <input type="file" name="photo" id="photo">
+                        <input type="file" class="form-control" name="photo" id="photo">
                         <span class="text text-danger">{{$errors->first('photo')}}</span>
 
                     </div>
@@ -63,7 +63,8 @@
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Save</button>
+                    <a href="{{route('admin.read')}}" class="btn btn-success">Cancel</a>
                 </div>
             </form>
         </div>

@@ -9,6 +9,14 @@ use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
+    public function userData(){
+        $data=[];
+        $data['users']=User::paginate(2);
+        return view('admin.user.user_data',$data);
+    }
+
+
+
     public function home(){
         return view('fontend.home');
     }

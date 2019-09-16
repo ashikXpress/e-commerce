@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Service extends Model
 {
     protected $guarded=[];
+
+    public function serviceImage(){
+
+        return $this->hasOne(ImageService::class,'service_id');
+    }
 }

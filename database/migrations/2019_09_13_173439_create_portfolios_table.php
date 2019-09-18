@@ -17,6 +17,8 @@ class CreatePortfoliosTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',255);
             $table->string('slug',255);
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
 
             $table->timestamps();
         });

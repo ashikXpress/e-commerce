@@ -19,6 +19,7 @@ class CreateImageServiceTable extends Migration
             $table->string('after_photo',255);
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Models\ImageService;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -23,13 +24,14 @@ class ServiceController extends Controller
             'before_photo'=>'required',
             'after_photo'=>'required',
         ]);
-
+        $admin_id=Auth::guard('admin')->user()->id;
 
         $service=Service::create([
             'name'=>$request->name,
             'title'=>$request->title,
             'slug'=>$request->slug,
             'descriptions'=>$request->descriptions,
+            'admin_id'=>$admin_id,
         ]);
 
         $service_id=$service->id;

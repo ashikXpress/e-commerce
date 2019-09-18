@@ -14,4 +14,6 @@ class ImagePortfolio extends Model
 
         return $this->belongsTo(Portfolio::Class,'portfolio_id');
     }
+
+
 }

@@ -34,7 +34,6 @@ Route::namespace('Auth')->group(function () {
 Route::namespace('Admin')->group(function () {
     Route::get('admin-create','AdminController@adminCreateForm')->name('admin.create.form');
     Route::post('admin-create','AdminController@adminCreate');
-
     Route::get('admin-read','AdminController@adminRead')->name('admin.read');
 });
 
@@ -49,13 +48,18 @@ Route::namespace('Service')->group(function (){
     Route::get('service-create','ServiceController@serviceCreateForm')->name('service.create.form');
     Route::post('service-create','ServiceController@serviceCreate');
     Route::get('service-read','ServiceController@serviceRead')->name('service.read');
-
+    Route::get('service-edit','ServiceController@serviceEdit')->name('service.edit');
+    Route::post('service-update/{id}','ServiceController@serviceUpdate')->name('service.update');
+    Route::get('service-delete/{id}','ServiceController@serviceDelete')->name('service.delete');
 
 });
 Route::namespace('Portfolio')->group(function(){
     Route::get('portfolio-create','PortfolioController@portfolioCreateForm')->name('portfolio.create.form');
     Route::post('portfolio-create','PortfolioController@portfolioCreate');
     Route::get('portfolio-read','PortfolioController@portfolioRead')->name('portfolio.read');
+    Route::get('portfolio-edit','PortfolioController@portfolioEdit')->name('portfolio.edit');
+    Route::post('portfolio-update/{id}','PortfolioController@portfolioUpdate')->name('portfolio.update');
+    Route::get('portfolio-delete/{id}','PortfolioController@portfolioDelete')->name('portfolio.delete');
 
 });
 
@@ -63,4 +67,7 @@ Route::namespace('Gallery')->group(function (){
     Route::get('gallery-create','GalleryController@galleryCreateForm')->name('gallery.create.form');
     Route::post('gallery-create','GalleryController@galleryCreate');
     Route::get('gallery-read','GalleryController@galleryRead')->name('gallery.read');
+    Route::get('gallery-edit','GalleryController@galleryEdit')->name('gallery.edit');
+    Route::post('gallery-update/{id}','GalleryController@galleryUpdate')->name('gallery.update');
+    Route::get('gallery-delete/{id}','GalleryController@galleryDelete')->name('gallery.delete');
 });

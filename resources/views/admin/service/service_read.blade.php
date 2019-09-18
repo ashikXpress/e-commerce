@@ -19,6 +19,7 @@
                                     <tr role="row">
                                         <th rowspan="1">Sl</th>
                                         <th rowspan="1" colspan="1">Name</th>
+                                        <th rowspan="1" colspan="1">Author</th>
                                         <th rowspan="1" colspan="1">Title</th>
                                         <th rowspan="1" colspan="1">descriptions</th>
                                         <th rowspan="1" colspan="1">Before photo</th>
@@ -33,6 +34,7 @@
                                         <tr role="row" class="odd">
                                             <td>{{$loop->iteration}}</td>
                                             <td>{{$service->name}}</td>
+                                            <td>{{$service->admin->name}}</td>
                                             <td>{{$service->title}}</td>
                                             <td>{{\Illuminate\Support\Str::words($service->descriptions, $words = 20, $end = '...')}}</td>
                                             <td>
@@ -70,6 +72,7 @@
                                     <tr>
                                         <th rowspan="1">Sl</th>
                                         <th rowspan="1" colspan="1">Name</th>
+                                        <th rowspan="1" colspan="1">Author</th>
                                         <th rowspan="1" colspan="1">Title</th>
                                         <th rowspan="1" colspan="1">descriptions</th>
                                         <th rowspan="1" colspan="1">Before photo</th>

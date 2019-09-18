@@ -6,6 +6,7 @@ use App\Models\ImagePortfolio;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PortfolioController extends Controller
 {
@@ -20,11 +21,12 @@ class PortfolioController extends Controller
             'slug'=>'required',
             'attachments'=>'required',
         ]);
-
+        $admin_id=Auth::guard('admin')->user()->id;
 
         $portfolio=Portfolio::create([
            'name'=>$request->name,
             'slug'=>$request->slug.'_'.\Str::random(10),
+            'admin_id'=>$admin_id,
         ]);
 
         $portfolio_id=$portfolio->id;

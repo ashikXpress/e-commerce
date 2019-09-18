@@ -9,5 +9,7 @@ class Portfolio extends Model
 
     protected $guarded=[];
 
-
+    public function admin(){
+        return $this->belongsTo(Admin::Class,'admin_id');
+    }
 }

@@ -12,4 +12,7 @@ class Service extends Model
 
         return $this->hasOne(ImageService::class,'service_id');
     }
+    public function admin(){
+        return $this->belongsTo(Admin::Class,'admin_id');
+    }
 }
